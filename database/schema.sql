@@ -1,0 +1,1 @@
+-- SwasthyaVault PostgreSQL Schema
