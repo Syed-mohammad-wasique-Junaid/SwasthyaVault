@@ -3,15 +3,17 @@ from fastapi import FastAPI
 # Database
 from app.database import Base, engine
 
-# Import ALL models so SQLAlchemy registers them
+# Models (IMPORTANT: register all models before create_all)
 from auth.models import User
 from patient.models import Patient
+from documents.models import Document
 
 # Routers
 from auth.routes import router as auth_router
 from patient.routes import router as patient_router
+from documents.routes import router as document_router
 
-# Create tables in PostgreSQL
+# Create all tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -23,8 +25,9 @@ app = FastAPI(
 # Register routers
 app.include_router(auth_router)
 app.include_router(patient_router)
+app.include_router(document_router)
 
-# Root endpoint
+
 @app.get("/")
 def root():
     return {
