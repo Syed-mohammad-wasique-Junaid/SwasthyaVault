@@ -12,6 +12,7 @@ from documents.models import Document
 from auth.routes import router as auth_router
 from patient.routes import router as patient_router
 from documents.routes import router as document_router
+from ai.routes import router as ai_router
 
 # Create all tables
 Base.metadata.create_all(bind=engine)
@@ -26,6 +27,7 @@ app = FastAPI(
 app.include_router(auth_router)
 app.include_router(patient_router)
 app.include_router(document_router)
+app.include_router(ai_router)
 
 
 @app.get("/")
