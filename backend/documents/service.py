@@ -1,27 +1,22 @@
 import os
 import shutil
-from uuid import uuid4
+import uuid
 from fastapi import UploadFile
 
-# Folder where reports will be stored
 UPLOAD_DIR = "uploads/documents"
 
-# Create folder automatically if it doesn't exist
+# Create folder if it doesn't exist
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
-def save_file(file: UploadFile):
+def save_file(file: UploadFile) -> str:
+    # Keep original extension
+    extension = os.path.splitext(file.filename)[1].lower()
 
-    # Get original extension
-    extension = file.filename.split(".")[-1]
+    filename = f"{uuid.uuid4()}{extension}"
+    file_path = os.path.join(UPLOAD_DIR, filename)
 
-    # Generate unique filename
-    unique_filename = f"{uuid4()}.{extension}"
-
-    # Full path
-    file_path = os.path.join(UPLOAD_DIR, unique_filename)
-
-    # Save file
+    # Save binary file correctly
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 

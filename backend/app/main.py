@@ -7,12 +7,14 @@ from app.database import Base, engine
 from auth.models import User
 from patient.models import Patient
 from documents.models import Document
+from timeline.models import Timeline
 
 # Routers
 from auth.routes import router as auth_router
 from patient.routes import router as patient_router
 from documents.routes import router as document_router
 from ai.routes import router as ai_router
+from timeline.routes import router as timeline_router
 
 # Create all tables
 Base.metadata.create_all(bind=engine)
@@ -28,6 +30,7 @@ app.include_router(auth_router)
 app.include_router(patient_router)
 app.include_router(document_router)
 app.include_router(ai_router)
+app.include_router(timeline_router)
 
 
 @app.get("/")
