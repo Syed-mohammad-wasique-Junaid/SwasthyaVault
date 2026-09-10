@@ -1,0 +1,1 @@
+const BASE_URL="http://127.0.0.1:8000";export async function api(e:string,o:RequestInit={}){const t=typeof window!=="undefined"?localStorage.getItem("token"):null;const r=await fetch(`${BASE_URL}${e}`,{...o,headers:{"Content-Type":"application/json",...(t&&{Authorization:`Bearer ${t}`}),...o.headers}});if(!r.ok)throw new Error(await r.text());return r.json();}
