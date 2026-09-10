@@ -1696,3 +1696,85 @@
       }
     }
   
+    .principles,
+.features,
+.workflow,
+.faq,
+.cta{
+  padding:90px 0;
+}
+
+.section-tag{
+  color:#6EE7C8;
+  letter-spacing:2px;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.principles-grid,
+.feature-grid,
+.workflow-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.principle-card,
+.feature-card,
+.step-card,
+.faq-item{
+  background:#0B2B24;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:24px;
+  padding:28px;
+}
+
+.feature-card h3,
+.faq-item h3{
+  margin-bottom:12px;
+}
+
+.step-card span{
+  color:#6EE7C8;
+  font-size:28px;
+  font-weight:700;
+}
+
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.cta-box{
+  background:linear-gradient(135deg,#0B2B24,#123A31);
+  border-radius:28px;
+  text-align:center;
+  padding:70px 40px;
+}
+
+.footer{
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 0;
+}
+
+@media(max-width:900px){
+
+  .principles-grid,
+  .feature-grid,
+  .workflow-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-row{
+    flex-direction:column;
+    gap:12px;
+  }
+
+}
