@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background & Atmospheric Tones */
+    --background: 162 60% 6%;
+    /* Deep forest medical green #051f19 */
+    --foreground: 160 30% 96%;
+    /* Soft white #f2f9f5 */
+
+    --surface-warm: 162 50% 9%;
+    /* Dark medical surface #082a22 */
+
+    /* Primary: Deep Medical Green */
+    --primary: 162 65% 10%;
+    /* Deep green card #06261f */
+    --primary-foreground: 160 30% 98%;
+
+    /* Secondary: Soft Illuminated Green */
+    --secondary: 162 40% 16%;
+    --secondary-foreground: 160 30% 96%;
+
+    /* Muted */
+    --muted: 162 30% 14%;
+    --muted-foreground: 160 15% 70%;
+
+    /* Action Accent: Dark Emerald */
+    --cta-accent: 162 65% 15%;
+    --cta-accent-hover: 162 65% 20%;
+    --cta-accent-foreground: 0 0% 100%;
+
+    /* Borders & UI Elements */
+    --border: 162 30% 15%;
+    --input: 162 30% 14%;
+    --ring: 217 91% 60%;
+
+    --radius: 1rem;
+
+    /* Semantic */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --card: 162 50% 8%;
+    --card-foreground: 160 30% 96%;
+
+    --popover: 162 50% 8%;
+    --popover-foreground: 160 30% 96%;
+  }
+
+  .dark {
+    --background: 162 60% 5%;
+    --foreground: 160 30% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-emerald-500/15;
+  }
+
+  body {
+    @apply bg-[#051f19] text-[#f2f9f5] font-sans antialiased selection:bg-emerald-500/30 selection:text-white;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Chrome Autofill fix for unreadable text */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: #f2f9f5 !important;
+    -webkit-box-shadow: 0 0 0px 1000px #06241e inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-emerald-950/40 backdrop-blur-xl border border-emerald-400/20 shadow-[0_8px_32px_rgba(0, 0, 0, 0.3)] transition-all duration-300;
+  }
+
+  .glass:hover {
+    transform: translateY(-3px);
+    border-color: rgba(52, 211, 153, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.08), 0 0 40px rgba(209, 250, 229, 0.05);
+  }
+
+  .glass-dark {
+    @apply bg-[#031511]/80 backdrop-blur-2xl border border-emerald-500/20 transition-all duration-300;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-dark:hover {
+    transform: translateY(-3px);
+    border-color: rgba(52, 211, 153, 0.35);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.08), 0 0 40px rgba(209, 250, 229, 0.05);
+    background-color: rgba(3, 25, 20, 0.85);
+  }
+
+  .glass-card {
+    @apply bg-gradient-to-b from-[#082d24]/90 to-[#041a15]/90 backdrop-blur-md border border-emerald-500/20 transition-all duration-300;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(52, 211, 153, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.08), 0 0 40px rgba(209, 250, 229, 0.05);
+    background-image: linear-gradient(to bottom, rgba(8, 45, 36, 0.95), rgba(4, 26, 21, 0.95));
+  }
+
+  .glass-navbar {
+    @apply bg-[#051f19]/80 backdrop-blur-xl border border-emerald-500/20 shadow-lg shadow-black/20;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-radial-illumination {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(220, 252, 231, 0.12), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(16, 185, 129, 0.05), transparent 70%),
+      radial-gradient(ellipse 70% 60% at 20% 80%, rgba(255, 255, 255, 0.03), transparent 70%);
+  }
+
+  .typography-compact .text-xs {
+    font-size: 0.65rem;
+    line-height: 0.85rem;
+  }
+
+  .typography-compact .text-sm {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .typography-compact .text-base {
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+  }
+
+  .typography-compact .text-lg {
+    font-size: 0.95rem;
+    line-height: 1.35rem;
+  }
+
+  .typography-compact .text-xl {
+    font-size: 1.05rem;
+    line-height: 1.45rem;
+  }
+
+  .typography-compact .text-2xl {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+
+  .typography-compact .text-3xl {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+
+  .typography-compact .text-4xl {
+    font-size: 1.7rem;
+    line-height: 2rem;
+  }
+
+  .typography-compact .text-5xl {
+    font-size: 2.1rem;
+    line-height: 2.4rem;
+  }
+
+  .typography-compact .text-6xl {
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+
+  .typography-compact .text-7xl {
+    font-size: 3.2rem;
+    line-height: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}

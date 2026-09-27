@@ -1,16 +1,54 @@
-# Next.js
-frontend/.next/
+# Dependencies
+node_modules/
 frontend/node_modules/
+.pnp
+.pnp.js
 
-# Python
-backend/venv/
-backend/__pycache__/
-*.pyc
+# Next.js build
+.next/
+frontend/.next/
+out/
+build/
+dist/
 
-# Environment
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment Variables & Secrets
 .env
-.env.local
+.env*.local
+*.env
+backend/.env
 
-# OS
+# Databases & Local Storage
+*.sqlite
+*.sqlite3
+*.db
+swasthyavault.db
+backend/swasthyavault.db
+
+# Uploaded Files & Temporary Assets
+uploads/
+backend/uploads/
+*.log
+sample_report.png
+test_report.txt
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
 .DS_Store
 Thumbs.db
