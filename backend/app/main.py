@@ -14,13 +14,17 @@ from consent.models import Consent
 # Routers
 from auth.routes import router as auth_router
 from patient.routes import router as patient_router
+from doctor.routes import router as doctor_router
 from documents.routes import router as document_router
 from ai.routes import router as ai_router
 from timeline.routes import router as timeline_router
 from consent.routes import router as consent_router
 
-# Create all tables
-Base.metadata.create_all(bind=engine)
+# Create all tables safely
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"[Database Warning] Table initialization deferred: {e}")
 
 app = FastAPI(
     title="SwasthyaVault API",
@@ -30,7 +34,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -39,6 +43,7 @@ app.add_middleware(
 # Register routers
 app.include_router(auth_router)
 app.include_router(patient_router)
+app.include_router(doctor_router)
 app.include_router(document_router)
 app.include_router(ai_router)
 app.include_router(timeline_router)

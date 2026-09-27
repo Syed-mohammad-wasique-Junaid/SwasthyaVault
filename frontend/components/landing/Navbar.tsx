@@ -1,1 +1,0 @@
-export default function Navbar(){return <header><nav className="wrap nav"><a className="brand" href="/"><span className="brand-mark">✚</span>SwasthyaVault</a><div className="nav-links"><a href="#features">Why SwasthyaVault</a><a href="#workflow">How it works</a><a href="#faq">FAQs</a><a className="btn btn-primary" href="/auth">Explore Demo ↗</a></div></nav></header>}
